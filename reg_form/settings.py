@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-ymy8ze$b7lbuw*b*$x9b8rd2%r(^so@5nq(-1vpmdt$n#h#kre
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
+# .vercel.app
 
 
 # Application definition
@@ -75,13 +76,20 @@ WSGI_APPLICATION = 'reg_form.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'DBNAME': os.environ.get("DBNAME"),
+    #     'DBUSER': os.environ.get("DBUSER"),
+    #     'PASSWORD': os.environ.get("PASSWORD"),
+    #     'DBHOST': os.environ.get("DBHOST"),
+    #     'PORT': os.environ.get("PORT"),
+    #     # 'OPTIONS': {
+    #     #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION'"
+    #     # }
+    # }
 }
 
-
+# mysql://khvn3suvt4pzxjss:l5ov1rol9anqgzha@s9xpbd61ok2i7drv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/r4zkb3mqlgtm4ygo
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
